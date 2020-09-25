@@ -1,0 +1,8 @@
+{% extends 'notesapp/base.html' %}
+{% block david %}
+{% for abc in notes_list %}
+<h1>{{abc.title}}</h1>
+<h3>{{abc.category}}</h3>
+<h4>{{abc.due_date}}</h4>
+{% endfor %}
+{% endblock %}
