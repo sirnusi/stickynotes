@@ -2,5 +2,20 @@
 {% block david %}
 <div class="jumbotron">
     <h1>List of all Notes.</h1>
+    {% if request.user.is_authenticated %}
+    {% for sticky in notes %}
+    <h4>User: {{sticky.author.username}}</h4>
+    <h3>Title: {{sticky.title}}</h3>
+
+    <h3>Date Start {{sticky.pub_date}} -- Due Date: {{sticky.due_date}}</h3>
+    {% endfor %}
+    {% else %}
+    <h1>You have to be logged in to see your activities!</h1>
+    {% endif %}
 </div>
+<form action="." method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Add Task">
+</form>
 {% endblock %}
