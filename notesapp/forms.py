@@ -10,4 +10,5 @@ class NoteForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'label': 'Title:', 'class': 'form-control', 'placeholder': 'What you want to do!'}),
             'category': forms.Select(attrs={'label': 'Category:', 'class': 'form-control'}),
+
         }

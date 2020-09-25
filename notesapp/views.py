@@ -1,7 +1,8 @@
 from django.shortcuts import get_object_or_404
-from django.views.generic import CreateView, ListView
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, ListView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Notes
+from .models import Notes, Category
 from .forms import NoteForm
 # Create your views here.
 
@@ -16,6 +17,20 @@ class ListNotes(LoginRequiredMixin, ListView):
         return context
 
 
-class CreateNote(CreateView):
+class CreateNote(LoginRequiredMixin, CreateView):
     model = Notes
     form_class = NoteForm
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+class CreateCategory(LoginRequiredMixin, CreateView):
+    model = Category
+    fields = ['name', ]
+
+
+class DeleteNote(DeleteView):
+    model = Notes
+    success_url = reverse_lazy('home')

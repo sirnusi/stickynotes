@@ -6,12 +6,17 @@
     {% for sticky in notes %}
     <h4>User: {{sticky.author.username}}</h4>
     <h3>Title: {{sticky.title}}</h3>
-
+    <h3>Category: {{sticky.category}}</h3>
     <h3>Date Start {{sticky.pub_date}} -- Due Date: {{sticky.due_date}}</h3>
+    <a href="{% url 'delete_note' sticky.pk %}"> &#128465 Delete</a>
+    {% empty %}
+    <h1>You don't have notes</h1>
     {% endfor %}
+
     {% else %}
     <h1>You have to be logged in to see your activities!</h1>
     {% endif %}
 </div>
 <a href="{% url 'new_note' %}">Create Task</a>
+<a href="{% url 'new_category' %}">New Category</a>
 {% endblock %}

@@ -3,8 +3,6 @@
 <form action="." method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" class="btn btn-danger" value="Login">
-    <br>
-    If you are not Registered. <a href="#">Create your Account.</a>
+    <input type="submit" value="Yes">
 </form>
 {% endblock %}
