@@ -7,6 +7,7 @@
     <h4>User: {{sticky.author.username}}</h4>
     <h3>Title: {{sticky.title}}</h3>
     <h3>Category: {{sticky.category}}</h3>
+
     <h3>Date Start {{sticky.pub_date}} -- Due Date: {{sticky.due_date}}</h3>
     <a href="{% url 'delete_note' sticky.pk %}"> &#128465 Delete</a>
     {% empty %}
