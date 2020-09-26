@@ -3,9 +3,11 @@ from .models import Notes
 
 
 class NoteForm(forms.ModelForm):
-    due_date = forms.DateField(
-        label='Due date for the task', widget=forms.SelectDateWidget)
-
     class Meta():
         model = Notes
         fields = ['title', 'category', 'due_date']
+
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'John Doe'}),
+            'category': forms.Select(attrs={'class': 'form-control'})
+        }

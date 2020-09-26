@@ -1,6 +1,7 @@
 {% extends 'notesapp/base.html' %}
 {% block david %}
 <form action="." method="POST">
+    <h3 placeholder="Y-M-D 24hrs">Due Date Format is Y-M-D Time(24hrs)</h3>
     {% csrf_token %}
     {{form.as_p}}
     <input type="submit" value="Add Task">
