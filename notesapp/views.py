@@ -1,7 +1,7 @@
-from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+# from django.contrib.auth.forms import UserCreationForm
 from .models import Notes, Category
 from .forms import NoteForm
 # Create your views here.
@@ -34,3 +34,7 @@ class CreateCategory(LoginRequiredMixin, CreateView):
 class DeleteNote(DeleteView):
     model = Notes
     success_url = reverse_lazy('home')
+
+
+class RegisterUser(CreateView):
+    template_name = 'notesapp/registration_form.html'

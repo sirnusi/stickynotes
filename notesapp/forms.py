@@ -1,5 +1,5 @@
 from django import forms
-from .models import Notes
+from .models import Notes, User
 
 
 class NoteForm(forms.ModelForm):

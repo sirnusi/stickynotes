@@ -1,0 +1,8 @@
+{% extends 'notesapp/base.html' %}
+{% block david %}
+<form action="." method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Register">
+</form>
+{% endblock %}
