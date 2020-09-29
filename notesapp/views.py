@@ -3,7 +3,7 @@ from django.views.generic import CreateView, ListView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 # from django.contrib.auth.forms import UserCreationForm
 from .models import Notes, Category
-from .forms import NoteForm
+from .forms import NoteForm, UserRegister
 # Create your views here.
 
 
@@ -37,4 +37,6 @@ class DeleteNote(DeleteView):
 
 
 class RegisterUser(CreateView):
-    template_name = 'notesapp/registration_form.html'
+    form_class = UserRegister
+    template_name = 'notesapp/signup.html'
+    success_url = reverse_lazy('login')
