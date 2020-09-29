@@ -1,7 +1,6 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-# from django.contrib.auth.forms import UserCreationForm
 from .models import Notes, Category
 from .forms import NoteForm, UserRegister
 # Create your views here.
